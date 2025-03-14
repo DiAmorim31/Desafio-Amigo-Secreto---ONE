@@ -1,6 +1,6 @@
-let amigosArray = [];
+let listAmigos = [];
 let numeroIndex = 0;
-let amigoSorteado ='';
+let amigoSorteado =''; 
 
 function exibirListaAmigos(tag, texto) {
     let campo = document.querySelector(tag);
@@ -14,27 +14,28 @@ function exibirAmigoSecreto(tag, texto) {
 
 function adicionarAmigo() {
     let amigoDigitado = document.querySelector('input').value;
+    
     if (amigoDigitado == '') {
-        alert('Por favor digite o nome do seu amigo! 🫂');
+        alert('Nos informe o nome dos seus amigos 😁');
         return;        
     } else {
-        amigosArray.push(amigoDigitado);
-        exibirListaAmigos('#listaAmigos', amigosArray);
+        listAmigos.push(amigoDigitado);
+        exibirListaAmigos('#listaAmigos', listAmigos);
         document.querySelector('input').value = '';
-        return amigosArray;
+        return listaAmigos;
     }
 }
-console.log(amigosArray);
+console.log(listAmigos);
 
 function sortearIndex() {
-    numeroIndex = parseInt(Math.random() * amigosArray.length);
+    numeroIndex = parseInt(Math.random() * listAmigos.length);
     return numeroIndex;       
 }
 
 function sortearAmigo() {
-    if (amigosArray.length !== 0) {
+    if (listAmigos.length !== 0) {
         sortearIndex();
-        amigoSorteado = amigosArray[numeroIndex];
+        amigoSorteado = listAmigos[numeroIndex];
         let displayAmigo = `Seu Amigo Secreto é ${amigoSorteado}!`;
         exibirAmigoSecreto('#resultado', displayAmigo);
     } else {
